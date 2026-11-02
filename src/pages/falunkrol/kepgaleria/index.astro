@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const albums = (await getCollection("galleries")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout title="Képgaléria" current="/falunkrol/kepgaleria/">
+  <div class="post">
+    <h2>Képgaléria</h2>
+    <div class="entry">
+      <div class="gallery-albums">
+        {
+          albums.map((a) => (
+            <div class="gallery-album">
+              <a href={`/falunkrol/kepgaleria/${a.id}/`}>
+                <img
+                  src={a.data.cover}
+                  alt={a.data.title}
+                  width="150"
+                  height="112"
+                />
+              </a>
+              <a class="title" href={`/falunkrol/kepgaleria/${a.id}/`}>
+                [{a.data.title}]
+              </a>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,16 @@
+---
+import Widget from "./Widget.astro";
+import { advert } from "../../data/sidebar";
+---
+
+<Widget title="HIRDETÉS">
+  <div class="textwidget">
+    <a href={advert.href}
+      ><img
+        src={advert.src}
+        width={advert.w}
+        height={advert.h}
+        alt={advert.alt}
+      /></a>
+  </div>
+</Widget>

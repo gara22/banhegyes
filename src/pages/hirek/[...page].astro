@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostArticle from "../../components/PostArticle.astro";
+import Pagination from "../../components/Pagination.astro";
+import { getPosts, type Post } from "../../lib/posts";
+import { site } from "../../data/site";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  return paginate(await getPosts(), { pageSize: site.postsPerPage });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<Post>;
+}
+const { page } = Astro.props;
+---
+
+<BaseLayout
+  title={page.currentPage > 1 ? `Hírek » ${page.currentPage}. oldal` : "Hírek"}
+  current="/hirek/"
+>
+  {page.data.map((post) => <PostArticle post={post} mode="index" />)}
+  <Pagination prev={page.url.prev} next={page.url.next} />
+</BaseLayout>

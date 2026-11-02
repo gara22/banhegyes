@@ -1,0 +1,77 @@
+---
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Attachments from "../components/Attachments.astro";
+import {
+  dedicatedPaths,
+  flattenNav,
+  pathId,
+  type FlatNavItem,
+} from "../data/navigation";
+
+export async function getStaticPaths() {
+  const pages = new Map((await getCollection("pages")).map((p) => [p.id, p]));
+  const stubs = new Map((await getCollection("stubs")).map((s) => [s.id, s]));
+  const nav = flattenNav().filter((n) => !dedicatedPaths.has(n.path));
+
+  // Every menu item must resolve to content so the menu never links to a 404.
+  const missing = nav.filter(
+    (n) => !pages.has(pathId(n.path)) && !stubs.has(pathId(n.path)),
+  );
+  if (missing.length) {
+    throw new Error(
+      `Menu items without content (add src/content/pages/<path>.md or a stubs.yaml entry):\n${missing.map((m) => m.path).join("\n")}`,
+    );
+  }
+  return nav.map((item) => ({
+    params: { slug: pathId(item.path) },
+    props: {
+      item,
+      page: pages.get(pathId(item.path)),
+      stub: stubs.get(pathId(item.path)),
+    },
+  }));
+}
+
+interface Props {
+  item: FlatNavItem;
+  page?: CollectionEntry<"pages">;
+  stub?: CollectionEntry<"stubs">;
+}
+const { item, page, stub } = Astro.props;
+
+const Rendered = page ? (await render(page)).Content : undefined;
+const title = page?.data.title ?? item.label;
+// Menu labels repeat (two "Pályázatok", two "Közbeszerzések"), so the document title names the parent.
+const docTitle = item.parent ? `${item.parent.label} » ${title}` : title;
+const attachments = page?.data.attachments ?? stub?.data.attachments ?? [];
+const showChildren =
+  (page ? page.data.showChildren : true) && !!item.children?.length;
+---
+
+<BaseLayout
+  title={docTitle}
+  description={page?.data.description}
+  current={item.path}
+>
+  <div class="post">
+    <h2>{title}</h2>
+    <div class="entry">
+      {Rendered && <Rendered />}
+      {stub?.data.paragraphs.map((p) => <p>{p}</p>)}
+      <Attachments items={attachments} />
+      {
+        showChildren && (
+          <ul class="child-links">
+            {item.children?.map((c) => (
+              <li>
+                <a href={c.path}>{c.label}</a>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+    </div>
+  </div>
+</BaseLayout>

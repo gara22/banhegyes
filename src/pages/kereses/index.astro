@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Keresés">
+  <div class="post">
+    <h2>Keresés</h2>
+    <div class="entry">
+      <p id="search-status">Keresés…</p>
+      <ul id="search-results" class="child-links"></ul>
+      <noscript><p>A kereséshez JavaScript szükséges.</p></noscript>
+    </div>
+  </div>
+  <script>
+    import "../../scripts/search";
+  </script>
+</BaseLayout>

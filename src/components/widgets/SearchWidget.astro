@@ -1,0 +1,15 @@
+---
+import Widget from "./Widget.astro";
+---
+
+<Widget title="KERESÉS">
+  <form id="searchform" method="get" action="/kereses/" role="search">
+    <input
+      type="text"
+      name="s"
+      id="s"
+      placeholder="Type and hit enter to search"
+      aria-label="Keresés"
+    />
+  </form>
+</Widget>

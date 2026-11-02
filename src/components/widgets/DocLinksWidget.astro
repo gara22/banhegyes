@@ -1,0 +1,10 @@
+---
+import Widget from "./Widget.astro";
+import { wells } from "../../data/sidebar";
+---
+
+<Widget title={wells.title}>
+  <div class="doclist">
+    {wells.docs.map((d) => <a href={d.href}>{d.label}</a>)}
+  </div>
+</Widget>

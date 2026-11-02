@@ -1,0 +1,22 @@
+---
+import Widget from "./Widget.astro";
+import { buildCalendar, renderCalendarHtml } from "../../lib/calendar";
+import { ymd } from "../../lib/dates";
+interface Props {
+  postDays: string[];
+  months: string[];
+}
+const { postDays, months } = Astro.props;
+const model = buildCalendar(ymd(new Date()), new Set(postDays), months);
+---
+
+<Widget title="TOP PÁLÁYZATOK">
+  <slot />
+  <div
+    id="calendar_wrap"
+    class="calendar_wrap"
+    data-post-days={JSON.stringify(postDays)}
+    data-months={JSON.stringify(months)}
+    set:html={renderCalendarHtml(model)}
+  />
+</Widget>

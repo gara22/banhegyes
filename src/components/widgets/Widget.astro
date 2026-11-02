@@ -1,0 +1,12 @@
+---
+interface Props {
+  title: string;
+  class?: string;
+}
+const { title, class: cls = "" } = Astro.props;
+---
+
+<li class:list={["widget", cls]}>
+  <h2>.: {title} :.</h2>
+  <slot />
+</li>

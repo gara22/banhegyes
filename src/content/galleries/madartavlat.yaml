@@ -1,0 +1,24 @@
+title: MADÁRTÁVLATBÓL
+order: 2
+cover: /img/galeria/madartavlat-1.svg
+images:
+  - {
+      src: /img/galeria/madartavlat-1.svg,
+      title: Madártávlat 1,
+      alt: Madártávlati illusztráció,
+    }
+  - {
+      src: /img/galeria/madartavlat-2.svg,
+      title: Madártávlat 2,
+      alt: Madártávlati illusztráció,
+    }
+  - {
+      src: /img/galeria/madartavlat-3.svg,
+      title: Madártávlat 3,
+      alt: Madártávlati illusztráció,
+    }
+  - {
+      src: /img/galeria/madartavlat-4.svg,
+      title: Madártávlat 4,
+      alt: Madártávlati illusztráció,
+    }

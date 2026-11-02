@@ -1,0 +1,42 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  return (await getCollection("galleries")).map((album) => ({
+    params: { gallery: album.id },
+    props: { album },
+  }));
+}
+
+interface Props {
+  album: CollectionEntry<"galleries">;
+}
+const { album } = Astro.props;
+---
+
+<BaseLayout title={album.data.title} current="/falunkrol/kepgaleria/">
+  <div class="post">
+    <h2><a href="/falunkrol/kepgaleria/">Képgaléria</a></h2>
+    <div class="entry">
+      <p class="slideshow-link">
+        <a href={album.data.images[0].src}>[DIAVETÍTÉS INDÍTÁSA]</a>
+      </p>
+      <div class="gallery-thumbs">
+        {
+          album.data.images.map((img) => (
+            <a href={img.src} title={img.title}>
+              <img
+                src={img.src}
+                alt={img.alt}
+                width="100"
+                height="75"
+                loading="lazy"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

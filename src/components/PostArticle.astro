@@ -1,0 +1,91 @@
+---
+import { render } from "astro:content";
+import Attachments from "./Attachments.astro";
+import { dotDate, wpMeta } from "../lib/dates";
+import { categorySlug, postPath, type Post } from "../lib/posts";
+
+interface Props {
+  post: Post;
+  mode: "index" | "archive" | "single";
+}
+const { post, mode } = Astro.props;
+const { Content } = await render(post);
+const { title, author, date, category, tags, attachments, image, imageAlt } =
+  post.data;
+---
+
+<div class="post">
+  <h2>
+    {
+      mode === "single" ? (
+        title
+      ) : (
+        <a href={postPath(post)} rel="bookmark">
+          {title}
+        </a>
+      )
+    }
+  </h2>
+  {
+    mode === "index" && (
+      <p class="postbyline">
+        Posted By {author} on {dotDate(date)}
+      </p>
+    )
+  }
+  {
+    mode === "archive" && (
+      <p class="postbyline">
+        {author} | {dotDate(date)}
+      </p>
+    )
+  }
+  <div class="entry">
+    {image && <img class="alignleft" src={image} alt={imageAlt} />}
+    <Content />
+    <Attachments items={attachments} />
+    {
+      mode === "single" ? (
+        <>
+          <p class="postmetadata">
+            Címkék:{" "}
+            {tags.map((t, i) => (
+              <>
+                {i > 0 && ", "}
+                <a href={`/kereses/?s=${encodeURIComponent(t)}`}>{t}</a>
+              </>
+            ))}
+          </p>
+          <p class="postmetadata">
+            This entry was posted by {author} on {wpMeta(date)} and is filed
+            under{" "}
+            <a href={`/kategoria/${categorySlug(category)}/`}>{category}</a>.
+            You can follow any responses to this entry through the{" "}
+            <a href="/rss.xml">RSS 2.0</a> feed. Both comments and pings are
+            currently closed.
+          </p>
+        </>
+      ) : (
+        <>
+          <p class="postmetadata">
+            Category:{" "}
+            <a href={`/kategoria/${categorySlug(category)}/`}>{category}</a> |
+            <span>
+              {" "}
+              {title} bejegyzéshez a hozzászólások lehetősége kikapcsolva
+            </span>
+          </p>
+          <p class="postmetadata">
+            Címkék:{" "}
+            {tags.map((t, i) => (
+              <>
+                {i > 0 && ", "}
+                <a href={`/kereses/?s=${encodeURIComponent(t)}`}>{t}</a>
+              </>
+            ))}
+          </p>
+        </>
+      )
+    }
+  </div>
+</div>

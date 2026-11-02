@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+address,
+dd,
+dl,
+hr,
+p,
+form {
+  font-family: var(--f-body);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--c-heading);
+  font-family: var(--f-heading);
+  margin: 0;
+  padding: 0 0 20px 5px;
+}
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.4em;
+}
+h4 {
+  font-size: 1.3em;
+}
+h5 {
+  font-size: 1.2em;
+}
+h6 {
+  font-size: 1.1em;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: var(--c-link);
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--c-link-hover);
+}
+p {
+  padding: 10px;
+}
+
+blockquote {
+  margin: 15px 40px 10px 30px;
+  padding: 0 10px 10px 20px;
+  font-style: italic;
+  border-left: 2px solid var(--c-border-mid);
+  border-right: 2px solid var(--c-border-mid);
+}
+
+body {
+  margin: 0;
+  font-size: 76.5%;
+  text-align: center;
+  vertical-align: top;
+  background-color: var(--c-body-bg);
+  /* Woven-cloth look in place of the original texture image. */
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.12) 0 1px,
+      transparent 1px 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.025) 0 1px,
+      transparent 1px 4px
+    );
+  color: var(--c-text);
+}
+
+img {
+  max-width: 100%;
+}
+a img {
+  border: 1px solid var(--c-image-border);
+  padding: 3px;
+  background: none;
+}
+.alignright {
+  float: right;
+}
+.alignleft {
+  float: left;
+}
+.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+img.alignright {
+  padding: 3px;
+  margin: 0 0 0 7px;
+}
+img.alignleft {
+  padding: 3px;
+  margin: 0 7px 0 0;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

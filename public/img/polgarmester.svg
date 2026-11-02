@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 283" width="200" height="283" role="img" aria-label="Kitalált polgármester illusztrációja">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd3e6"/><stop offset="1" stop-color="#e6eef5"/></linearGradient></defs>
+  <rect width="200" height="283" fill="url(#bg)"/>
+  <path d="M0 283 V236 C0 210 40 196 100 196 C160 196 200 210 200 236 V283Z" fill="#2b2f3a"/>
+  <path d="M82 196 L100 250 L118 196Z" fill="#f4f4f4"/>
+  <path d="M96 204 h8 l5 44 l-9 14 l-9 -14z" fill="#b3261e"/>
+  <rect x="86" y="160" width="28" height="42" rx="8" fill="#e3b48f"/>
+  <ellipse cx="100" cy="116" rx="46" ry="56" fill="#efc29c"/>
+  <path d="M54 104 C50 52 84 40 104 42 C140 44 152 78 146 106 C140 84 120 72 100 72 C78 72 60 82 54 104Z" fill="#4b2e1a"/>
+  <rect x="64" y="108" width="30" height="20" rx="6" fill="none" stroke="#222" stroke-width="3"/>
+  <rect x="106" y="108" width="30" height="20" rx="6" fill="none" stroke="#222" stroke-width="3"/>
+  <path d="M94 116 h12" stroke="#222" stroke-width="3"/>
+  <circle cx="79" cy="118" r="3.5" fill="#222"/><circle cx="121" cy="118" r="3.5" fill="#222"/>
+  <path d="M84 150 Q100 162 116 150" fill="none" stroke="#8a4a3a" stroke-width="3" stroke-linecap="round"/>
+  <path d="M54 130 C56 164 78 176 100 176 C122 176 144 164 146 130 C140 150 124 160 100 160 C76 160 60 150 54 130Z" fill="#4b2e1a" opacity=".85"/>
+</svg>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  items: { title: string; file: string }[];
+}
+const { items } = Astro.props;
+// Each PDF has a generated first-page preview next to it (see scripts/make-documents.mjs).
+const preview = (file: string) => file.replace(/\.pdf$/, ".png");
+---
+
+{
+  items.map((a) => (
+    <>
+      <a class="doc-frame" href={a.file}>
+        <img
+          src={preview(a.file)}
+          alt={a.title}
+          loading="lazy"
+          width="510"
+          height="721"
+        />
+      </a>
+      <p class="doc-links">
+        <a href={a.file}>{a.title}</a> (PDF)
+      </p>
+    </>
+  ))
+}

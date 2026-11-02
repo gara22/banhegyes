@@ -1,0 +1,44 @@
+---
+import EfopWidget from "./widgets/EfopWidget.astro";
+import DocLinksWidget from "./widgets/DocLinksWidget.astro";
+import TopPalyazatokWidget from "./widgets/TopPalyazatokWidget.astro";
+import NamedayWidget from "./widgets/NamedayWidget.astro";
+import RecentPostsWidget from "./widgets/RecentPostsWidget.astro";
+import { banners, top } from "../data/sidebar";
+import { site } from "../data/site";
+import { getPosts, groupByMonth, postDaySet } from "../lib/posts";
+
+const posts = await getPosts();
+const months = groupByMonth(posts).map(
+  (g) => `${g.y}-${String(g.m).padStart(2, "0")}`,
+);
+---
+
+<div id="right_sidebar" class="sidebar">
+  <ul>
+    <li class="widget banners">
+      {
+        banners.map((b) => (
+          <a href={b.href}>
+            <img src={b.src} width={b.w} height={b.h} alt={b.alt} />
+          </a>
+        ))
+      }
+    </li>
+    <EfopWidget />
+    <DocLinksWidget />
+    <TopPalyazatokWidget postDays={[...postDaySet(posts)]} months={months}>
+      <div class="textwidget">
+        <a href={top.href}
+          ><img
+            src={top.image.src}
+            width={top.image.w}
+            height={top.image.h}
+            alt={top.image.alt}
+          /></a>
+      </div>
+    </TopPalyazatokWidget>
+    <NamedayWidget />
+    <RecentPostsWidget posts={posts.slice(0, site.recentPostsCount)} />
+  </ul>
+</div>

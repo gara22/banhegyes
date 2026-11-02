@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 115" width="92" height="115" role="img" aria-label="Paródia-címer: paprika pajzson">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3e6c4"/><stop offset="1" stop-color="#d8c18a"/></linearGradient>
+  </defs>
+  <path d="M46 4 C60 10 76 10 86 8 V58 C86 86 66 102 46 111 C26 102 6 86 6 58 V8 C16 10 32 10 46 4Z" fill="url(#g)" stroke="#3f3013" stroke-width="3"/>
+  <path d="M46 12 C58 17 70 17 79 15 V58 C79 80 62 94 46 102 C30 94 13 80 13 58 V15 C22 17 34 17 46 12Z" fill="none" stroke="#7c7953" stroke-width="1.5"/>
+  <path d="M46 36 C34 36 28 50 32 66 C35 78 42 84 46 88 C50 84 57 78 60 66 C64 50 58 36 46 36Z" fill="#b3261e" stroke="#600000" stroke-width="2"/>
+  <path d="M46 36 C44 30 46 26 52 24" fill="none" stroke="#3b6b1f" stroke-width="4" stroke-linecap="round"/>
+  <path d="M38 44 C36 52 37 60 40 68" fill="none" stroke="#e0665c" stroke-width="3" stroke-linecap="round"/>
+  <path d="M16 34 h12 v-8 l5 5 l5 -8 l5 8 l5 -5 v8 h12" fill="none" stroke="#7c7953" stroke-width="1.5" opacity="0"/>
+  <path d="M30 20 l4 -8 l6 6 l6 -9 l6 9 l6 -6 l4 8z" fill="#cc9933" stroke="#3f3013" stroke-width="1.5"/>
+  <text x="46" y="103" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#3f3013" letter-spacing="1">PARÓDIA</text>
+</svg>

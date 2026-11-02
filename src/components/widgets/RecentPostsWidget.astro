@@ -1,0 +1,22 @@
+---
+import Widget from "./Widget.astro";
+import { isoDate } from "../../lib/dates";
+import { postPath, type Post } from "../../lib/posts";
+interface Props {
+  posts: Post[];
+}
+const { posts } = Astro.props;
+---
+
+<Widget title="LEGUTÓBBI BEJEGYZÉSEK">
+  <ul class="recent">
+    {
+      posts.map((p) => (
+        <li>
+          <a href={postPath(p)}>{p.data.title}</a>{" "}
+          <span class="date">{isoDate(p.data.date)}</span>
+        </li>
+      ))
+    }
+  </ul>
+</Widget>

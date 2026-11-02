@@ -1,0 +1,14 @@
+---
+const items = [
+  'Betűméret +', 'Betűméret -', 'Szürkeárnyalatos', 'Magas kontraszt', 'Negatív kontraszt',
+  'Világos háttér', 'Linkek aláhúzása', 'Olvasható betűtípus', 'Visszaállítás',
+];
+---
+<nav class="pojo-a11y-toolbar" aria-label="Akadálymentesítés">
+  <button type="button" class="a11y-toggle" aria-label="Eszköztár megnyitása - Akadálymentesítés" title="Akadálymentesítés">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm8 7h-5v12h-2v-5h-2v5H9V9H4V7h16v2z"/></svg>
+  </button>
+  <ul hidden>
+    {items.map((label) => <li>{label}</li>)}
+  </ul>
+</nav>

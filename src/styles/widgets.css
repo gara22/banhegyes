@@ -1,0 +1,184 @@
+/* Sidebars are a <ul> of widget <li>s, like the original theme. */
+.sidebar > ul,
+.sidebar ul {
+  margin: 0 0 5px;
+  padding: 0;
+}
+.sidebar li {
+  background: var(--c-panel);
+  display: block;
+  padding: 0 0 3px;
+  margin: 0;
+  list-style: none;
+}
+.sidebar ul ul {
+  margin: 0 0 0 10px;
+}
+.sidebar li a {
+  font-size: 1.1em;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.sidebar li a:hover {
+  color: var(--c-link-hover);
+}
+
+.sidebar h2 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  margin: 15px auto 5px;
+  padding: 3px 3px 3px 0;
+  text-align: center;
+  background-color: var(--c-widget-title);
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.05) 0 2px,
+    transparent 2px 5px
+  );
+  border-top: 1px solid var(--c-border-mid);
+  border-bottom: 1px solid var(--c-border-mid);
+}
+
+.widget {
+  background: var(--c-panel);
+}
+.widget .textwidget {
+  padding: 0;
+}
+.widget .textwidget img {
+  display: block;
+  margin: 5px auto;
+}
+.widget.plain {
+  background: transparent;
+}
+.widget.plain h2 {
+  margin-top: 0;
+}
+
+/* Main menu: always-expanded nested list, as on the reference site. */
+.menu-list li {
+  padding-bottom: 3px;
+  line-height: 1.35;
+}
+.menu-list a {
+  font-size: 1.1em;
+}
+.menu-list li.current > a {
+  font-weight: bold;
+}
+
+/* Banner stack at the top of the right sidebar. */
+.banners {
+  background: transparent;
+  padding: 0;
+}
+.banners a {
+  display: block;
+  margin: 0 0 4px;
+}
+.banners img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Document links widget */
+.doclist {
+  padding: 5px 0 0;
+}
+.sidebar .doclist a {
+  display: block;
+  padding: 7px 0;
+  font-size: 1.1em;
+}
+.sidebar .textwidget li {
+  padding: 10px 0 10px 10px;
+}
+
+/* Search */
+#searchform {
+  margin: 10px auto;
+  padding: 5px 3px;
+  text-align: center;
+}
+#searchform input[type="text"],
+#searchform input[type="search"] {
+  width: 150px;
+  padding: 2px;
+  font-size: 13px;
+}
+
+/* Calendar */
+#wp-calendar {
+  text-align: center;
+  background: var(--c-widget-title);
+  margin: 0 0 10px 20px;
+  padding: 0;
+  width: 80%;
+  border: 1px solid var(--c-border-dark);
+  border-collapse: separate;
+  font-variant: small-caps;
+  font-family: var(--f-calendar);
+}
+#wp-calendar caption {
+  color: var(--c-heading);
+  text-align: center;
+  width: 80%;
+  margin: 5px 0 5px 20px;
+  font-family: var(--f-calendar);
+  font-size: 14px;
+}
+#wp-calendar th {
+  font-size: 10px;
+  color: var(--c-image-border);
+}
+#wp-calendar td {
+  line-height: 10px;
+  font-size: 10px;
+  color: var(--c-image-border);
+  font-variant: small-caps;
+}
+#wp-calendar td a {
+  display: block;
+  color: var(--c-image-border);
+  text-decoration: none;
+  line-height: 10px;
+  font-weight: bold;
+  font-size: 10px;
+}
+#wp-calendar td.today {
+  background: var(--c-today-bg);
+  color: var(--c-today-text);
+}
+#wp-calendar td.today a {
+  color: var(--c-today-text);
+}
+.calendar-nav {
+  padding: 0 0 0 10px;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameday {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 1.1em;
+  line-height: 1.4;
+}
+.nameday .name {
+  color: var(--c-nameday);
+}
+
+.recent li {
+  padding: 0 0 3px 10px;
+}
+.recent a {
+  font-size: 1.1em;
+}
+.recent .date {
+  margin-left: 2px;
+}

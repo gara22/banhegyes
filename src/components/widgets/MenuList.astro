@@ -1,0 +1,21 @@
+---
+import type { NavItem } from "../../data/navigation";
+interface Props {
+  items: NavItem[];
+  current: string;
+}
+const { items, current } = Astro.props;
+---
+
+<ul>
+  {
+    items.map((item) => (
+      <li class:list={{ current: item.path === current }}>
+        <a href={item.path}>{item.label}</a>
+        {item.children && (
+          <Astro.self items={item.children} current={current} />
+        )}
+      </li>
+    ))
+  }
+</ul>

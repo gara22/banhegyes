@@ -1,0 +1,9 @@
+---
+import Widget from './Widget.astro';
+import { namedayHtml, ymd } from '../../lib/dates';
+// Build-time fallback; the client script refreshes it for the visitor's day.
+const html = namedayHtml(ymd(new Date()));
+---
+<Widget title="NÉVNAPOK">
+  <div class="nameday" id="nameday" set:html={html} />
+</Widget>

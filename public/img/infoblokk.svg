@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 182 134" width="182" height="134" role="img" aria-label="Kitalált infoblokk">
+  <rect width="182" height="134" fill="#fff"/>
+  <path d="M8 130 C8 80 40 40 100 40 C140 40 166 50 176 58" fill="none" stroke="#2155b5" stroke-width="2.5"/>
+  <rect x="62" y="70" width="104" height="18" fill="#2155b5"/>
+  <text x="114" y="83" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#fff">KITALÁLT TÁMOGATÁS</text>
+  <text x="16" y="28" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">Paródia-infoblokk</text>
+  <text x="62" y="108" font-family="Arial, sans-serif" font-size="9" fill="#333">Nem létező forrásból,</text>
+  <text x="62" y="120" font-family="Arial, sans-serif" font-size="9" fill="#333">nem létező célra.</text>
+</svg>

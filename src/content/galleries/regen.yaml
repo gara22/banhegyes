@@ -1,0 +1,24 @@
+title: RÉGES-RÉGEN
+order: 3
+cover: /img/galeria/regen-1.svg
+images:
+  - {
+      src: /img/galeria/regen-1.svg,
+      title: Régen a gőzmalom,
+      alt: Régi gőzmalom illusztrációja,
+    }
+  - {
+      src: /img/galeria/regen-2.svg,
+      title: Régen az iskola,
+      alt: Régi iskola illusztrációja,
+    }
+  - {
+      src: /img/galeria/regen-3.svg,
+      title: Régen a főtér,
+      alt: Régi főtér illusztrációja,
+    }
+  - {
+      src: /img/galeria/regen-4.svg,
+      title: Régen a telep,
+      alt: Régi telep illusztrációja,
+    }

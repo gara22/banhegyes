@@ -1,0 +1,21 @@
+---
+import Widget from "./Widget.astro";
+import { monthLabel, monthPath } from "../../lib/dates";
+import type { MonthGroup } from "../../lib/posts";
+interface Props {
+  months: MonthGroup[];
+}
+const { months } = Astro.props;
+---
+
+<Widget title="ARCHÍVUM">
+  <ul>
+    {
+      months.map((g) => (
+        <li>
+          <a href={monthPath(g.y, g.m)}>{monthLabel(g.y, g.m)}</a> ({g.count})
+        </li>
+      ))
+    }
+  </ul>
+</Widget>

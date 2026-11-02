@@ -1,0 +1,13 @@
+---
+import Widget from "./Widget.astro";
+import MenuList from "./MenuList.astro";
+import { navigation } from "../../data/navigation";
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+---
+
+<Widget title="FŐMENÜ">
+  <div class="menu-list"><MenuList items={navigation} current={current} /></div>
+</Widget>

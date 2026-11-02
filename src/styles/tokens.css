@@ -1,0 +1,33 @@
+:root {
+  --c-body-bg: #3f3013;
+  --c-paper: #ebe1c8;
+  --c-panel: #ded3b7;
+  --c-widget-title: #b3a381;
+  --c-border-dark: #3f3013;
+  --c-border-mid: #7c7953;
+  --c-image-border: #544b40;
+  --c-heading: #533419;
+  --c-link: #533419;
+  --c-link-hover: #660000;
+  --c-text: #444;
+  --c-bar: #514424;
+  --c-bar-text: #dbcfb0;
+  --c-bar-link: #d4be87;
+  --c-today-bg: #600000;
+  --c-today-text: #e6ddbc;
+  --c-nameday: #e08a00;
+  --c-header-title: #3f3013;
+  --c-header-title-hover: #cc9933;
+  --c-a11y: #4054b2;
+
+  --f-body: "Trebuchet MS", Verdana, Tahoma, Arial, sans-serif;
+  --f-heading:
+    Georgia, "Trebuchet MS", Helvetica, Verdana, Times, Tahoma, Arial,
+    sans-serif;
+  --f-calendar: Times, Verdana, sans-serif;
+
+  --w-page: 1000px;
+  --w-header: 990px;
+  --w-sidebar: 210px;
+  --w-content: 530px;
+}

@@ -1,0 +1,26 @@
+---
+import Widget from "./Widget.astro";
+import { efop } from "../../data/sidebar";
+---
+
+<Widget title="EFOP PÁLYÁZATOK">
+  <div class="textwidget">
+    <ul>
+      {
+        efop.links.map((l) => (
+          <li>
+            <a href={l.href}>
+              <strong>{l.label}</strong>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <img
+      src={efop.image.src}
+      width={efop.image.w}
+      height={efop.image.h}
+      alt={efop.image.alt}
+    />
+  </div>
+</Widget>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostArticle from "../../../components/PostArticle.astro";
+import { getPosts, groupByMonth, type Post } from "../../../lib/posts";
+import { monthKey } from "../../../lib/dates";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return groupByMonth(posts).map(({ y, m }) => {
+    const mm = String(m).padStart(2, "0");
+    return {
+      params: { year: String(y), month: mm },
+      props: {
+        posts: posts.filter((p) => monthKey(p.data.date) === `${y}-${mm}`),
+      },
+    };
+  });
+}
+
+interface Props {
+  posts: Post[];
+}
+const { posts } = Astro.props;
+const { year, month } = Astro.params;
+---
+
+<BaseLayout title={`${year}. ${month}`} current="/hirek/">
+  {posts.map((post) => <PostArticle post={post} mode="archive" />)}
+</BaseLayout>

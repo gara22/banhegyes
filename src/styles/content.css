@@ -1,0 +1,193 @@
+.post {
+  padding: 10px 0 5px;
+}
+.post h2 {
+  font-size: 1.5em;
+  margin: 0 0 0 5px;
+  padding-top: 5px;
+}
+.post h2 a:link,
+.post h2 a:visited {
+  color: var(--c-heading);
+}
+
+.page-title {
+  font-size: 1.5em;
+  margin: 0;
+  padding: 15px 0 20px 5px;
+}
+
+.entry {
+  font-size: 1.22em;
+  text-align: justify;
+  line-height: 1.42em;
+  padding: 0 0 40px;
+  border-bottom: 1px dotted var(--c-image-border);
+}
+.entry h3 {
+  padding: 15px 0 10px 5px;
+}
+.entry img {
+  border: 0;
+}
+
+.postmetadata {
+  margin: 0;
+  font-size: 9px;
+}
+.postbyline {
+  padding: 0 0 10px 5px;
+  margin: 0;
+  font-size: 1em;
+}
+
+.doc-frame {
+  display: block;
+  margin: 10px 0;
+  border: 1px solid #000;
+  background: #fff;
+  padding: 0;
+}
+.doc-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0;
+  padding: 0;
+}
+.doc-links {
+  padding: 0 0 0 5px;
+  margin: 0;
+  font-size: 1em;
+}
+
+.navigation {
+  padding: 5px 0 5px 10px;
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 18px;
+  display: flex;
+  justify-content: space-between;
+}
+.navigation a {
+  font-size: 12px;
+}
+
+#author-box {
+  width: 90%;
+  min-height: 115px;
+  margin: 10px 10px 20px;
+  padding: 0 10px 10px;
+  background: var(--c-widget-title);
+  border: 1px solid var(--c-border-dark);
+}
+#author-box h2 {
+  padding: 0;
+  margin: 5px 0 5px;
+}
+#author-box h4 {
+  padding: 0 0 0 10px;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.child-links {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0 5px;
+  font-size: 1.22em;
+  line-height: 1.6;
+}
+
+/* Tables follow the plain TablePress default look of the original. */
+.entry table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 20px;
+  text-align: left;
+  font-size: 1em;
+}
+.entry th,
+.entry td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  vertical-align: top;
+  text-align: left;
+}
+.entry thead th,
+.entry tr:first-child th {
+  background: #d9edf7;
+  font-weight: bold;
+}
+.entry tbody tr:nth-child(odd) td {
+  background: #f9f9f9;
+}
+
+.entry .section {
+  overflow: hidden;
+  padding: 0 0 15px;
+}
+.entry .section img {
+  float: left;
+  margin: 5px 15px 10px 5px;
+  border: 1px solid var(--c-image-border);
+  padding: 3px;
+}
+
+#commentblock h2 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  margin: 15px auto 5px;
+  padding: 3px 3px 3px 0;
+  text-align: center;
+  background-color: var(--c-widget-title);
+  border-top: 1px solid var(--c-border-mid);
+  border-bottom: 1px solid var(--c-border-mid);
+}
+.child-links li::before {
+  content: "\2022  ";
+}
+
+.gallery-albums {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding: 10px 0 0 5px;
+}
+.gallery-album {
+  width: 150px;
+  text-align: center;
+  font-size: 1em;
+}
+.gallery-album img {
+  display: block;
+  width: 150px;
+  height: 112px;
+  object-fit: cover;
+}
+.gallery-album a.title {
+  display: block;
+  margin-top: 4px;
+  text-transform: uppercase;
+  font-size: 0.95em;
+  font-weight: bold;
+}
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 0 10px 5px;
+}
+.gallery-thumbs a {
+  display: block;
+}
+.gallery-thumbs img {
+  width: 100px;
+  height: 75px;
+  object-fit: cover;
+  display: block;
+}
+.slideshow-link {
+  padding: 5px 0 0 5px;
+  font-weight: bold;
+}

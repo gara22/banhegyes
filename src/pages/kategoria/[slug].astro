@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostArticle from "../../components/PostArticle.astro";
+import { getPosts, categorySlug, type Post } from "../../lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const names = [...new Set(posts.map((p) => p.data.category))];
+  return names.map((name) => ({
+    params: { slug: categorySlug(name) },
+    props: { name, posts: posts.filter((p) => p.data.category === name) },
+  }));
+}
+
+interface Props {
+  name: string;
+  posts: Post[];
+}
+const { name, posts } = Astro.props;
+---
+
+<BaseLayout title={name} current="/hirek/">
+  <h2 class="page-title">Kategória: {name}</h2>
+  {posts.map((post) => <PostArticle post={post} mode="archive" />)}
+</BaseLayout>

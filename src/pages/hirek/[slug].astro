@@ -1,0 +1,54 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostArticle from "../../components/PostArticle.astro";
+import { getPosts, postPath, postSlug, type Post } from "../../lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: postSlug(post) },
+    // Posts are newest first, so the following item is the older one.
+    props: { post, older: posts[i + 1], newer: posts[i - 1] },
+  }));
+}
+
+interface Props {
+  post: Post;
+  older?: Post;
+  newer?: Post;
+}
+const { post, older, newer } = Astro.props;
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.excerpt}
+  current="/hirek/"
+>
+  <PostArticle post={post} mode="single" />
+  <div id="author-box">
+    <h2>About The Author</h2>
+    <h4>{post.data.author}</h4>
+  </div>
+  <div id="commentblock"><h2>Comments</h2></div>
+  <div class="navigation">
+    <div>
+      {
+        older && (
+          <a href={postPath(older)} rel="prev">
+            « {older.data.title}
+          </a>
+        )
+      }
+    </div>
+    <div>
+      {
+        newer && (
+          <a href={postPath(newer)} rel="next">
+            {newer.data.title} »
+          </a>
+        )
+      }
+    </div>
+  </div>
+</BaseLayout>

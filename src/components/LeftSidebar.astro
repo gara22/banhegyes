@@ -1,0 +1,21 @@
+---
+import MainMenu from "./widgets/MainMenu.astro";
+import AdWidget from "./widgets/AdWidget.astro";
+import SearchWidget from "./widgets/SearchWidget.astro";
+import ArchiveWidget from "./widgets/ArchiveWidget.astro";
+import { getPosts, groupByMonth } from "../lib/posts";
+interface Props {
+  current: string;
+}
+const { current } = Astro.props;
+const months = groupByMonth(await getPosts());
+---
+
+<div id="left_sidebar" class="sidebar">
+  <ul>
+    <MainMenu current={current} />
+    <AdWidget />
+    <SearchWidget />
+    <ArchiveWidget months={months} />
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192" role="img" aria-label="Paprika Falu Program">
+  <rect width="192" height="192" fill="#fff"/>
+  <path d="M96 24 C74 24 62 52 68 80 C72 98 86 108 96 114 C106 108 120 98 124 80 C130 52 118 24 96 24Z" fill="#b3261e"/>
+  <path d="M96 24 C92 12 98 6 110 4" fill="none" stroke="#3b6b1f" stroke-width="7" stroke-linecap="round"/>
+  <path d="M40 124 C70 112 122 112 152 124" fill="none" stroke="#b3261e" stroke-width="4"/>
+  <path d="M40 132 C70 120 122 120 152 132" fill="none" stroke="#fff" stroke-width="4"/>
+  <path d="M40 140 C70 128 122 128 152 140" fill="none" stroke="#3b6b1f" stroke-width="4"/>
+  <text x="96" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="19" fill="#333">PAPRIKA FALU</text>
+  <text x="96" y="187" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="19" fill="#333">PROGRAM</text>
+</svg>

@@ -1,0 +1,21 @@
+/* Visual-only toolbar toggle (no behaviour by request). */
+.a11y-toggle {
+  position: fixed;
+  left: 0;
+  top: 100px;
+  width: 52px;
+  height: 52px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-a11y);
+  border: 0;
+  border-radius: 0 10px 10px 0;
+  cursor: default;
+}
+.a11y-toggle svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}

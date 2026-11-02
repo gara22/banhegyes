@@ -1,0 +1,26 @@
+title: NAGYBÁNHEGYES
+order: 1
+cover: /img/galeria/ma-1.svg
+images:
+  - { src: /img/galeria/ma-1.svg, title: A főtér, alt: A főtér illusztrációja }
+  - { src: /img/galeria/ma-2.svg, title: A park, alt: A park illusztrációja }
+  - {
+      src: /img/galeria/ma-3.svg,
+      title: A művelődési ház,
+      alt: A művelődési ház illusztrációja,
+    }
+  - {
+      src: /img/galeria/ma-4.svg,
+      title: A piactér,
+      alt: A piactér illusztrációja,
+    }
+  - {
+      src: /img/galeria/ma-5.svg,
+      title: A kis templom,
+      alt: A kis templom illusztrációja,
+    }
+  - {
+      src: /img/galeria/ma-6.svg,
+      title: A kastély,
+      alt: A kastély illusztrációja,
+    }
