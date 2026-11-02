@@ -38,7 +38,10 @@ test.describe("crawl", () => {
       expect(html, `meta description of ${clean}`).toMatch(
         /<meta name="description" content="[^"]+"/,
       );
-      expect(html, `disclaimer on ${clean}`).toContain("parody-bar");
+      expect(
+        html.includes('class="parody-bar"'),
+        `disclaimer on ${clean}`,
+      ).toBe(clean === "/");
       if (titles.has(title))
         failures.push(
           `duplicate title "${title}": ${clean} and ${titles.get(title)}`,

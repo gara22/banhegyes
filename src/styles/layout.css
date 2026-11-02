@@ -122,19 +122,19 @@
   color: var(--c-bar-link);
 }
 
-/* Persistent parody notice, styled as an old municipal notice strip. */
+/* Low-key disclaimer shown at the end of the homepage. */
 .parody-bar {
-  background: var(--c-today-bg);
-  color: var(--c-today-text);
+  color: var(--c-border-mid);
   font:
-    12px/1.4 Georgia,
+    11px/1.5 Georgia,
     serif;
-  text-align: center;
-  padding: 5px 10px;
-  border-bottom: 3px double var(--c-header-title-hover);
+  text-align: right;
+  margin-top: 8px;
+  padding-top: 5px;
+  border-top: 1px dotted var(--c-border-mid);
 }
 .parody-bar strong {
-  letter-spacing: 0.04em;
+  font-weight: normal;
 }
 
 /* The original is a fixed 1000px page; below that, stack the columns instead of overflowing. */

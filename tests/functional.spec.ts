@@ -143,16 +143,20 @@ test.describe("gallery", () => {
 });
 
 test.describe("parody identity", () => {
-  test("disclaimer is visible on every sampled page", async ({ page }) => {
+  test("disclaimer appears only at the end of the homepage content", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.locator("#container > .parody-bar")).toBeVisible();
+
     for (const path of [
-      "/",
       "/hirek/",
       "/onkormanyzat/",
       "/falunkrol/kepgaleria/",
       "/nincs-ilyen-oldal/",
     ]) {
       await page.goto(path);
-      await expect(page.locator(".parody-bar")).toBeVisible();
+      await expect(page.locator(".parody-bar")).toHaveCount(0);
     }
   });
 

@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 import { readFileSync } from "node:fs";
 
 // Boxes captured from the reference site (scripts/capture-reference.mjs). Only x/width are compared:
-// vertical offsets differ because of the parody notice bar and different content length.
+// vertical offsets differ because of page content length.
 const meta = JSON.parse(
   readFileSync(new URL("./reference/meta.json", import.meta.url), "utf8"),
 );
