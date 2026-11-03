@@ -19,6 +19,6 @@ A látnivalókon túl érdekes rendezvény várja minden évben az idelátogató
 Ha teheti, látogasson el kis falunkba, és győződjön meg Nagybánhegyes lakóinak vendégszeretetéről!
 
 <figure style="float:right;margin:20px 0 0;text-align:center;width:200px">
-<img src="/img/polgarmester.svg" alt="A kitalált polgármester illusztrációja" width="200" height="283" />
-<figcaption>Dr. Csípős Elemér<br />polgármester (kitalált)</figcaption>
+<img src="/img/polgarmester.png" alt="A kitalált polgármester illusztrációja" width="200" height="283" />
+<figcaption>Dr. Tóth Károly<br />polgármester/lelki vezető/fagyis/földtulajdonos</figcaption>
 </figure>
