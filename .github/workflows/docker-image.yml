@@ -12,8 +12,31 @@ env:
 
 # One job per image: the static site and the contact API.
 jobs:
+  test-contact-api:
+    name: Test contact API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.23.4
+          cache: npm
+          cache-dependency-path: services/contact-api/package-lock.json
+
+      - name: Install API dependencies
+        run: npm ci
+        working-directory: services/contact-api
+
+      - name: Run API tests
+        run: npm test
+        working-directory: services/contact-api
+
   build-and-push-image:
     name: Build and push (${{ matrix.name }})
+    needs: test-contact-api
     runs-on: ubuntu-latest
     strategy:
       matrix:
