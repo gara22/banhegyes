@@ -1,0 +1,82 @@
+---
+import { site } from "../data/site";
+const endpoint = site.contactEndpoint;
+---
+
+<div class="contact">
+  <h3>Kapcsolat – írjon a hivatalnak!</h3>
+  <form
+    id="contact-form"
+    method="post"
+    action={endpoint || undefined}
+    data-endpoint={endpoint}
+  >
+    <p>
+      <label for="contact-name">Név:</label><br />
+      <input
+        type="text"
+        id="contact-name"
+        name="name"
+        required
+        maxlength="100"
+        autocomplete="name"
+      />
+    </p>
+    <p>
+      <label for="contact-message">Üzenet:</label><br />
+      <textarea
+        id="contact-message"
+        name="message"
+        required
+        maxlength="2000"
+        rows="6"></textarea>
+    </p>
+    <p><button type="submit">Elküldöm</button></p>
+    <p class="hp" aria-hidden="true">
+      <label
+        >Ne töltse ki: <input
+          type="text"
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+        /></label
+      >
+    </p>
+    <p id="contact-status" role="status" aria-live="polite"></p>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById(
+    "contact-form",
+  ) as HTMLFormElement | null;
+  const statusEl = document.getElementById("contact-status");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (!statusEl) return;
+    const endpoint = form.dataset.endpoint;
+
+    if (!endpoint) {
+      statusEl.textContent =
+        "Köszönjük! Üzenetét a hivatal gondosan iktatta egy nem létező fiókba. (Demó: az üzenet nem lett elküldve.)";
+      form.reset();
+      return;
+    }
+
+    statusEl.textContent = "Küldés…";
+    try {
+      const res = await fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      statusEl.textContent = "Köszönjük, üzenetét megkaptuk!";
+      form.reset();
+    } catch {
+      statusEl.textContent =
+        "Az üzenet küldése nem sikerült. Kérjük, próbálja újra később.";
+    }
+  });
+</script>

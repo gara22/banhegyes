@@ -12,5 +12,6 @@ playwright-report
 coverage
 tests
 scripts
+services
 README.md
 AGENTS.md

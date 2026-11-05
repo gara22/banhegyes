@@ -133,6 +133,77 @@ test.describe("search", () => {
   });
 });
 
+test.describe("contact form", () => {
+  test("requires both fields before sending anything", async ({ page }) => {
+    let requests = 0;
+    await page.route("**/api/contact", (route) => {
+      requests += 1;
+      return route.fulfill({ status: 200, json: { ok: true } });
+    });
+    await page.goto("/");
+    const form = page.locator("#contact-form");
+    await form.getByRole("button", { name: "Elküldöm" }).click();
+    await form.getByLabel("Név:").fill("Teszt Elek");
+    await form.getByRole("button", { name: "Elküldöm" }).click();
+    expect(requests).toBe(0);
+    await expect(page.locator("#contact-status")).toBeEmpty();
+  });
+
+  test("posts JSON to the API and confirms", async ({ page }) => {
+    let sent:
+      { method: string; type: string | undefined; body: unknown } | undefined;
+    await page.route("**/api/contact", (route) => {
+      const req = route.request();
+      sent = {
+        method: req.method(),
+        type: req.headers()["content-type"],
+        body: req.postDataJSON(),
+      };
+      return route.fulfill({ status: 200, json: { ok: true } });
+    });
+    await page.goto("/");
+    const form = page.locator("#contact-form");
+    await form.getByLabel("Név:").fill("Teszt Elek");
+    await form.getByLabel("Üzenet:").fill("Mikor nyit a szökőkút?");
+    await form.getByRole("button", { name: "Elküldöm" }).click();
+
+    await expect(page.locator("#contact-status")).toContainText("megkaptuk");
+    await expect(form.getByLabel("Név:")).toHaveValue("");
+    expect(sent).toEqual({
+      method: "POST",
+      type: "application/json",
+      body: {
+        name: "Teszt Elek",
+        message: "Mikor nyit a szökőkút?",
+        website: "",
+      },
+    });
+  });
+
+  test("keeps the text and reports an error when the API fails", async ({
+    page,
+  }) => {
+    await page.route("**/api/contact", (route) =>
+      route.fulfill({ status: 500, json: { error: "server_error" } }),
+    );
+    await page.goto("/");
+    const form = page.locator("#contact-form");
+    await form.getByLabel("Név:").fill("Teszt Elek");
+    await form.getByLabel("Üzenet:").fill("Szia");
+    await form.getByRole("button", { name: "Elküldöm" }).click();
+
+    await expect(page.locator("#contact-status")).toContainText("nem sikerült");
+    await expect(form.getByLabel("Üzenet:")).toHaveValue("Szia");
+  });
+
+  test("spam-trap field is not visible to visitors", async ({ page }) => {
+    await page.goto("/");
+    await expect(
+      page.locator("#contact-form input[name=website]"),
+    ).not.toBeInViewport();
+  });
+});
+
 test.describe("gallery", () => {
   test("album list opens a gallery with thumbnails", async ({ page }) => {
     await page.goto("/falunkrol/kepgaleria/");

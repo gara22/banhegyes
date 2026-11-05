@@ -2,6 +2,7 @@
 import { getEntry, render } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ParodyDisclaimer from "../components/ParodyDisclaimer.astro";
+import ContactForm from "../components/ContactForm.astro";
 
 const home = await getEntry("pages", "fooldal");
 if (!home) throw new Error("Missing src/content/pages/fooldal.md");
@@ -13,5 +14,6 @@ const { Content } = await render(home);
     <h2>{home.data.title}</h2>
     <div class="entry home"><Content /></div>
   </div>
+  <ContactForm />
   <ParodyDisclaimer />
 </BaseLayout>

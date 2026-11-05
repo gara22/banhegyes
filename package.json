@@ -12,6 +12,7 @@
     "astro": "astro",
     "check": "astro check",
     "test": "playwright test",
+    "test:api": "npm --prefix services/contact-api ci && npm --prefix services/contact-api test",
     "test:update": "playwright test visual --update-snapshots",
     "capture:ref": "node scripts/capture-reference.mjs"
   },

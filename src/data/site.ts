@@ -13,6 +13,8 @@ export const site = {
   },
   postsPerPage: 10,
   recentPostsCount: 10,
+  // POST target for the home-page contact form (proxied to the contact-api service); empty = demo mode, nothing is sent.
+  contactEndpoint: "/api/contact",
 };
 
 export function pageTitle(title?: string): string {

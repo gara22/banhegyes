@@ -191,3 +191,43 @@
   padding: 5px 0 0 5px;
   font-weight: bold;
 }
+
+.contact {
+  clear: both;
+  margin: 10px 0 15px;
+  background: var(--c-panel);
+  border-top: 1px solid var(--c-border-mid);
+  border-bottom: 1px solid var(--c-border-mid);
+}
+.contact h3 {
+  font-size: 1.1em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  padding: 3px;
+  background-color: var(--c-widget-title);
+  border-bottom: 1px solid var(--c-border-mid);
+}
+.contact p {
+  padding: 6px 10px;
+  font-size: 1.1em;
+}
+.contact input[type="text"],
+.contact textarea {
+  width: 100%;
+  padding: 2px;
+  font: inherit;
+  border: 1px solid var(--c-image-border);
+  background: #fff;
+}
+.contact button {
+  font: inherit;
+  padding: 2px 10px;
+}
+#contact-status:empty {
+  display: none;
+}
+.contact .hp {
+  position: absolute;
+  left: -9999px;
+}
