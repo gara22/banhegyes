@@ -1,5 +1,41 @@
 import { expect, test } from "@playwright/test";
 
+test("mayor results chart shows proportional fictional results without overlapping labels", async ({
+  page,
+}) => {
+  await page.goto("/polgarmester-valasztas-eredmenyei/");
+  const chart = page.getByRole("figure", {
+    name: "A polgármester-választás eredményei",
+  });
+  await expect(chart).toBeVisible();
+  await expect(chart.locator(".result")).toHaveCount(3);
+  const percentages = await chart.locator(".value").allTextContents();
+  expect(percentages).toEqual(["49%", "35%", "16%"]);
+  expect(percentages.reduce((total, value) => total + parseInt(value), 0)).toBe(
+    100,
+  );
+
+  for (const row of await chart.locator(".result").all()) {
+    const track = await row.locator("dd").boundingBox();
+    const bar = await row.locator(".bar").boundingBox();
+    const value = await row.locator(".value").boundingBox();
+    const label = await row.locator("dt").boundingBox();
+    expect(track).not.toBeNull();
+    expect(bar).not.toBeNull();
+    expect(value).not.toBeNull();
+    expect(label).not.toBeNull();
+    const percent = parseInt(await row.locator(".value").innerText());
+    expect(bar!.width / (track!.width - 1)).toBeCloseTo(percent / 50, 2);
+    expect(value!.x).toBeGreaterThanOrEqual(label!.x + label!.width);
+    expect(value!.x + value!.width).toBeLessThanOrEqual(
+      (await chart.boundingBox())!.x + (await chart.boundingBox())!.width,
+    );
+  }
+
+  await page.goto("/kepviselo-testulet-valasztasanak-eredmenyei/");
+  await expect(page.locator(".election-chart")).toHaveCount(0);
+});
+
 test.describe("navigation", () => {
   test("main menu lists every level and links resolve", async ({
     page,

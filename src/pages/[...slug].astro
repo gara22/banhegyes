@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Attachments from "../components/Attachments.astro";
+import MayorResultsChart from "../components/MayorResultsChart.astro";
 import {
   dedicatedPaths,
   flattenNav,
@@ -60,6 +61,7 @@ const showChildren =
     <div class="entry">
       {Rendered && <Rendered />}
       {stub?.data.paragraphs.map((p) => <p>{p}</p>)}
+      {item.path === "/polgarmester-valasztas-eredmenyei/" && <MayorResultsChart />}
       <Attachments items={attachments} />
       {
         showChildren && (
