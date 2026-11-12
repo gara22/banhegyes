@@ -23,11 +23,11 @@ export const banners = [
 ];
 
 export const advert = {
-  src: "/img/hirdetes.svg",
-  alt: "Paprikaposta – hirdetés",
-  w: 180,
-  h: 113,
-  href: "/hirek/",
+  src: "/img/keramia_logo.png",
+  alt: "Garai Kerámia",
+  w: 170,
+  h: 162,
+  href: "https://garaikeramia.hu/",
 };
 
 export const efop = {
